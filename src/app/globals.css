@@ -2,6 +2,7 @@
 @import 'tw-animate-css';
 @import '@wallet-ui/tailwind/index.css';
 
+/* stylelint-disable-next-line at-rule-no-unknown */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

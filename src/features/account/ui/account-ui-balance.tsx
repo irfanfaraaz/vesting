@@ -6,7 +6,19 @@ export function AccountUiBalance({ address }: { address: Address }) {
   const query = useGetBalanceQuery({ address })
 
   return (
-    <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
+    <h1
+      className="text-5xl font-bold cursor-pointer"
+      onClick={() => query.refetch()}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          query.refetch()
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label="Refresh balance"
+    >
       {query.data?.value ? <AccountUiBalanceSol balance={query.data?.value} /> : '...'} SOL
     </h1>
   )
